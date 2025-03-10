@@ -1,0 +1,7 @@
+{
+  "task": "yelp",
+  "horizon": 50,
+  "bundle_size": 12,
+  "lims_type": [3, 3, 2, 2, 2, 1, 1, 2, 1, 1, 3, 1],
+  "exposure_vector": [1, 1, 1]
+}

@@ -1,0 +1,7 @@
+{
+  "task": "amazon",
+  "horizon": 50,
+  "bundle_size": 6,
+  "lims_type": 1,
+  "exposure_vector": [0.2, 0.2, 0.1, 0.5]
+}

@@ -1,0 +1,6 @@
+{
+  "task": "ml-100k",
+  "horizon": 50,
+  "bundle_size": 6,
+  "exposure_vector": [0.5, 0.5]
+}
