@@ -16,6 +16,12 @@ the sequential aspect). These are _ILP_ (```ilp.py```), FairWG (```fair_wg.py```
   - For _Amazon_, the relevance matrix is too big, hence we provide the raw ratings (```rating_proc.csv```) as well as
   the file ```proc_ratings.py``` to process them and create the matrix file (```.npy``` format). 
 
+# Install requirements
+Please first install requirements using:
+````
+pip install -r requirements.txt
+````
+
 # Run an experiment 
 To run a particular experiment, run the following command line:
 ````

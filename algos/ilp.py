@@ -6,7 +6,6 @@ from time import time
 
 def ilp(list_items,
         rel_vec,
-        cost_vec,
         sim_matrix,
         type_matrix,
         disc_matrix,
@@ -14,7 +13,6 @@ def ilp(list_items,
         p_fair_targets,
         p_fair,
         gamma,
-        budget,
         bundle_size=-1,
         lims_type=None
 ):
@@ -47,14 +45,9 @@ def ilp(list_items,
                 gp.quicksum(x[i] * type_matrix[i, h] for i in range(len(list_items))) <= lims_type[h], name=f"type_{h}"
             )
 
-    ## Budget / Size
-    if budget > 0:  # Budget constraint
-        model.addConstr(
-            gp.quicksum(x[i] * cost_vec[i] for i in range(len(list_items))) <= budget, name=f"budget"
-        )
     # Size constraint
     model.addConstr(
-        gp.quicksum(x[i] for i in range(len(list_items))) <= bundle_size, name=f"size"
+        gp.quicksum(x[i] for i in range(len(list_items))) == bundle_size, name=f"size"
     )
 
     ## Decision

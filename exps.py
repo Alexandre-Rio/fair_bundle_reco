@@ -34,14 +34,11 @@ def create_args():
 # Parse args and load config
 args = create_args()
 problem_config = json.load(open(os.path.join("configs", args.problem_config + ".json")))
-if "budget_mean_multiplier" not in problem_config:
-    problem_config["budget_mean_multiplier"] = 0.0
 args.problem_config = problem_config
 
 # Get task data
 sim_matrix = pd.read_csv(os.path.join('data', args.problem_config["task"], 'sim_matrix.csv'), index_col=0)
 disc_matrix = pd.read_csv(os.path.join('data', args.problem_config["task"], 'disc_matrix.csv'), index_col=0)
-cost_vector = pd.read_csv(os.path.join('data', args.problem_config["task"], 'cost_vector.csv'), index_col=0)
 rel_matrix = np.load(os.path.join('data', args.problem_config["task"], f'rel_matrix.npy'))
 if os.path.exists(os.path.join('data', args.problem_config["task"], 'user_prob_vector.csv')):
     probs_users = pd.read_csv(os.path.join('data', args.problem_config["task"], 'user_prob_vector.csv'), index_col=0)
@@ -58,7 +55,6 @@ sim_matrix.columns = sim_matrix.columns.astype('int')
 disc_matrix.columns = disc_matrix.columns.astype('int')
 rel_matrix = rel_matrix.loc[:, disc_matrix.index]
 sim_matrix = sim_matrix.loc[disc_matrix.index, disc_matrix.index]
-cost_vector = cost_vector.loc[disc_matrix.index]
 if type_matrix is not None:
     type_matrix = type_matrix.loc[disc_matrix.index]
 rel_matrix /= 5.0
