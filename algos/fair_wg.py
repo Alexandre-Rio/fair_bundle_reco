@@ -42,9 +42,9 @@ def fair_wg(
 
         rels = (N / (N + 1)) * current_rel + (1 / N) * (1 - gamma) * rel_vec[active]
         if N == 1:
-            sims = (1 / N) * current_sim + (1 / N) * gamma * sim_matrix[active][:, bundle].sum(axis=1)
+            sims = gamma * sim_matrix[active][:, bundle].sum(axis=1)
         else:
-            sims = (1 / N) * current_sim + (1 / (N * (N - 1))) * gamma * sim_matrix[active][:, bundle].sum(axis=1)
+            sims = (1 / N) * current_sim + (2 / (N * (N - 1))) * gamma * sim_matrix[active][:, bundle].sum(axis=1)
         scores = rels + sims - lambda_pfair * disc_budgets[disc_matrix[active].argmax(axis=1)]
         best_idx = scores.argmax()
         best_id = active[best_idx]
@@ -52,9 +52,9 @@ def fair_wg(
         bundle.append(best_id)
         current_rel = (N / (N + 1)) * current_rel + (1 / N) * (1 - gamma) * rel_vec[best_id]
         if N == 1:
-            current_sim = (1 / N) * current_sim + (1 / N) * gamma * sim_matrix[best_id][bundle].sum()
+            current_sim = gamma * sim_matrix[best_id][bundle].sum()
         else:
-            current_sim = (1 / N) * current_sim + (1 / (N * (N - 1))) * gamma * sim_matrix[best_id][bundle].sum()
+            current_sim = (1 / N) * current_sim + (2 / (N * (N - 1))) * gamma * sim_matrix[best_id][bundle].sum()
         N += 1
         if type_matrix is not None:
             covered += type_matrix[best_id]

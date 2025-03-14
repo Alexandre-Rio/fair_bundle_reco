@@ -17,7 +17,7 @@ def score_bundle(bundle, rel_vec, sim_matrix, args):
             sim = sim_matrix.loc[bundle[i], bundle[i+1:]]
             similarity += sim.sum()
         if len(bundle) > 1:
-            similarity /= len(bundle) * (len(bundle) - 1)
+            similarity /= 0.5 * len(bundle) * (len(bundle) - 1)
 
         quality = (1 - args.gamma) * relevance + args.gamma * similarity
 

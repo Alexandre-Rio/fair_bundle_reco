@@ -56,9 +56,9 @@ def f3r(
             if N > 0:
                 rels = (N / (N + 1)) * current_rel + (1 / N) * (1 - gamma) * rel_vec[current_active]
                 if N > 1:
-                        sims = (1 / N) * current_sim + (1 / (N * (N-1))) * gamma * sim_matrix[current_active][:, bundle].sum(axis=1)
+                        sims = (1 / N) * current_sim + (2 / (N * (N-1))) * gamma * sim_matrix[current_active][:, bundle].sum(axis=1)
                 else:
-                        sims = (1 / N) * current_sim + (1 / N) * gamma * sim_matrix[current_active][:, bundle].sum(axis=1)
+                        sims = gamma * sim_matrix[current_active][:, bundle].sum(axis=1)
                 scores = rels + sims
             else:
                 scores = (1 - gamma) * rel_vec[current_active]
@@ -69,9 +69,9 @@ def f3r(
             if N > 0:
                 current_rel = (N / (N + 1)) * current_rel + (1 / N) * (1 - gamma) * rel_vec[best_id]
                 if N == 1:
-                    current_sim = (1 / N) * current_sim + (1 / N) * gamma * sim_matrix[best_id][bundle].sum()
+                    current_sim = gamma * sim_matrix[best_id][bundle].sum()
                 else:
-                    current_sim = (1 / N) * current_sim + (1 / (N * (N - 1))) * gamma * \
+                    current_sim = (1 / N) * current_sim + (2 / (N * (N - 1))) * gamma * \
                                   sim_matrix[best_id][bundle].sum()
             else:
                 current_rel = rel_vec[best_id]

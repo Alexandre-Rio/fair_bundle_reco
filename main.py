@@ -19,7 +19,7 @@ def create_args():
 
     # Algo parameters
     parser.add_argument('--algo', type=str, default="ilp", help="'ilp', 'fair_wg', or 'f3r'")
-    parser.add_argument('--gamma', type=float, default=0.5)
+    parser.add_argument('--gamma', type=float, default=0.25)
     parser.add_argument('--M', type=int, default=100)
     parser.add_argument('--epsilon', type=float, default=0.1)
     parser.add_argument('--alpha', type=float, default=2)

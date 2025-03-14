@@ -85,7 +85,7 @@ def ilp(list_items,
         for j in range(i + 1, len(list_items)):
             sim_expr += y[i, j] * sim_matrix[i, j]
     rel_expr /= bundle_size
-    sim_expr /= bundle_size * (bundle_size - 1)
+    sim_expr /= 0.5 * bundle_size * (bundle_size - 1)
     obj_expr = (1 - gamma) * rel_expr + gamma * sim_expr
     model.setObjective(obj_expr, sense=GRB.MAXIMIZE)
 
