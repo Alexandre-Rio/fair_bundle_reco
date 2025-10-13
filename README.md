@@ -1,4 +1,4 @@
-This is the official implementation of the fair bundle recommendation algorithms from _Producer-Fairness in Sequential Bundle Recommendation_, currently under review at ECML-PKDD 2025.
+This is the official implementation of the fair bundle recommendation algorithms from _Producer-Fairness in Sequential Bundle Recommendation_, currently under review at KDD 2026.
 
 # Repository description
 
