@@ -1,4 +1,4 @@
-This is the official implementation of the fair bundle recommendation algorithms from _Producer-Fairness in Sequential Bundle Recommendation_, currently under review at KDD 2026.
+This is the official implementation of the fair bundle recommendation algorithms from _Producer-Fairness in Sequential Bundle Recommendation_, currently under review at JAIR.
 
 # Repository description
 
@@ -27,7 +27,7 @@ To run a particular experiment, run the following command line:
 ````
 python main.py --problem_config ml-100k
 ````
-Specify other arguments as wanted.
+Specify other arguments as described in the Experiments section of the paper. Random seeds are set up as needed to obtain the results described in the paper.
 
 # Results
 Results will be saved in the ```runs``` folder. In particular, for each run, a tensorboard file is created containing many
